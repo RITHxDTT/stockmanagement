@@ -8,15 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class NextPage {
-    public static void nextPage() throws SQLException {
+public class LastPage {
+    public static void lastPage() throws SQLException {
         try(Connection con = DbConncetion.getConnection()){
-            NumberDisplay.page +=  NumberDisplay.row;
 
+            NumberDisplay.pageIndex = NumberDisplay.totalPage;
+            NumberDisplay.page = NumberDisplay.total -  (NumberDisplay.row+1) ;
+            System.out.println("number of row " + NumberDisplay.page);
 //            retrive data
-            String select = """
-                    select * from products where id >
-                    """ +NumberDisplay.page + ";";
+            String select = " select * from products where id > " + NumberDisplay.page;
 
 //            statement
             Statement stmt = con.createStatement();
@@ -58,7 +58,7 @@ public class NextPage {
             }
 
             // 3. Add the Footer (spanning columns for that "cool" look)
-            t.addCell("Page : " + NumberDisplay.pageIndex +" of " + NumberDisplay.totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
+            t.addCell("Page : " +NumberDisplay.pageIndex  +" of " + NumberDisplay.totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
             t.addCell("Total Record :" + NumberDisplay.total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
 
             // 4. Render ONCE at the end
