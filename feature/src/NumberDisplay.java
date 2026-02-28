@@ -14,6 +14,7 @@ public class NumberDisplay {
     public static int total =0;
     public static int totalPage = 0;
     public static int pageIndex = 1;
+    public static int row = 3;
 
     public void displayProductName() throws SQLException {
         try(Connection con = DbConncetion.getConnection()){

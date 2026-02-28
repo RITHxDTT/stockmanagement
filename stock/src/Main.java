@@ -49,8 +49,7 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("l")){
-
-                break;
+                LastPage.lastPage();
 
             }
             else if(input.output.equalsIgnoreCase("w")){
