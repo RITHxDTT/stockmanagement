@@ -40,12 +40,12 @@ public class Main {
             }
             else if(input.output.equalsIgnoreCase("p")){
 
-                break;
+
 
             }
             else if(input.output.equalsIgnoreCase("f")){
+                FirstPage.firstPage();
 
-                break;
 
             }
             else if(input.output.equalsIgnoreCase("l")){
