@@ -66,11 +66,11 @@ public class NumberDisplay {
 //            total page
             int totalPage = total/4;
 
-            // 3. Add the Footer (spanning columns for that "cool" look)
+            // 3. Add the Footer 
             t.addCell("Page : " + page +" of " + totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
             t.addCell("Total Record :" + total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
 
-              // 4. Render ONCE at the end
+              // 4. Render 
             System.out.println(t.render());
 
         }
