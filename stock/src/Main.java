@@ -3,7 +3,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        DbConncetion db = new DbConncetion();
-
+        NumberDisplay numberDisplay = new NumberDisplay();
+        numberDisplay.displayProductName();
     }
 }
