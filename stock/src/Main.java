@@ -34,8 +34,8 @@ public class Main {
 //        regex validation
             input.inputType();
             if(input.output.equalsIgnoreCase("n")){
+                NextPage.nextPage();
 
-                break;
 
             }
             else if(input.output.equalsIgnoreCase("p")){

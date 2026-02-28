@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="color" />
+    <orderEntry type="library" name="postgresql-42.2.29.jre8" level="project" />
   </component>
 </module>

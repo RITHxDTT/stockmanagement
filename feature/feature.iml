@@ -10,5 +10,7 @@
     <orderEntry type="library" name="postgresql-42.2.29.jre7" level="project" />
     <orderEntry type="library" name="text-table-formatter-1.1.2" level="project" />
     <orderEntry type="module" module-name="util" />
+    <orderEntry type="module" module-name="color" />
+    <orderEntry type="library" name="postgresql-42.2.29.jre8" level="project" />
   </component>
 </module>
