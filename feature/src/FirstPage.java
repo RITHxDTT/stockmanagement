@@ -8,16 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class NextPage {
-    public static void nextPage() throws SQLException {
+public class FirstPage {
+    public static void firstPage() throws SQLException {
         try(Connection con = DbConncetion.getConnection()){
-            int perPage = 3;
-            NumberDisplay.page += perPage;
-
+            NumberDisplay.pageIndex = 0;
+            NumberDisplay.page =0;
 //            retrive data
-            String select = """
-                    select * from products where id >
-                    """ +NumberDisplay.page + ";";
+            String select = " select * from products ";
 
 //            statement
             Statement stmt = con.createStatement();
