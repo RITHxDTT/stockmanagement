@@ -57,11 +57,11 @@ public class NextPage {
 
             }
 
-            // 3. Add the Footer (spanning columns for that "cool" look)
+            // 3. Add the Footer
             t.addCell("Page : " + NumberDisplay.pageIndex +" of " + NumberDisplay.totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
             t.addCell("Total Record :" + NumberDisplay.total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
 
-            // 4. Render ONCE at the end
+            // 4. Render
             System.out.println(t.render());
         }
         catch(SQLException e){
