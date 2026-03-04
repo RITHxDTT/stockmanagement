@@ -13,7 +13,7 @@ public class Main {
         Pagination p1 = new Pagination();
 
 
-        System.out.println("\t\t---------Stock Management---------\t\t");
+        System.out.println(Colors.cyan+"\t\t---------Stock Management---------\t\t"+Colors.reset);
         Pagination.loadProducts();
 
 
@@ -24,14 +24,14 @@ public class Main {
             System.out.println();
 
             System.out.println();
-            System.out.println("\t\t\t---------Menu---------\t\t");
+            System.out.println(Colors.purple+"\t\t\t---------Menu---------\t\t"+Colors.reset);
             System.out.println();
 
-            System.out.println("\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t ");
+            System.out.println(Colors.blue+"\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t "+Colors.reset);
             System.out.println();
-            System.out.println("W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows ");
+            System.out.println(Colors.green+"W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows "+Colors.reset);
             System.out.println();
-            System.out.println("Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore ");
+            System.out.println(Colors.cyan+"Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore "+Colors.reset);
             System.out.println();
             System.out.println("\t\t----------------------------------------");
             System.out.println();

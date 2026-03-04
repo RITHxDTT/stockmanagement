@@ -9,7 +9,7 @@ public class DeleteById {
     public static void deleteData() {
         try (Connection con = DbConncetion.getConnection()) {
             while (true) {
-                System.out.print("Enter the ID of the product you want to delete: ");
+                System.out.print(Colors.cyan+"Enter the ID of the product you want to delete: "+Colors.reset);
                 String productId = sc.nextLine();
                 String regex = "^\\d{1,2}$";
 
@@ -23,12 +23,12 @@ public class DeleteById {
 
                         if (rowsAffected > 0) {
                             System.out.println(Colors.green+"Product ID " + productId + " was successfully deleted."+ Colors.reset);
-                            System.out.print("Press Enter to Continuous.....");
+                            System.out.print(Colors.yellow+"Press Enter to Continuous....."+Colors.reset);
                             sc.nextLine();
                             break;
                         } else {
                             System.out.println(Colors.red + "Product ID not found in database. Cannot delete." + Colors.reset);
-                            System.out.print("Press Enter to Continuous.....");
+                            System.out.print(Colors.yellow+"Press Enter to Continuous....."+Colors.reset);
                             sc.nextLine();
                         }
                     }
@@ -37,7 +37,7 @@ public class DeleteById {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("error connected to database: " + e.getMessage());
+            System.out.println(Colors.red+"error connected to database: " + e.getMessage()+Colors.reset);
         }
     }
 }

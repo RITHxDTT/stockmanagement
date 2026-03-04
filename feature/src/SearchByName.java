@@ -13,7 +13,7 @@ public class SearchByName {
     static Scanner sc = new Scanner(System.in);
 
     public static void search() {
-        System.out.print("Enter the name of the product you want to search: ");
+        System.out.print(Colors.cyan+"Enter the name of the product you want to search: "+Colors.reset);
         String searchName = sc.nextLine();
 
         String searchQuery = "SELECT * FROM products WHERE name iLIKE ?";
@@ -48,17 +48,17 @@ public class SearchByName {
                 if (isFound) {
                     t.addCell("Total Records Found: " + countRecord, new CellStyle(CellStyle.HorizontalAlign.center), 5);
                     System.out.println(t.render());
-                    System.out.print("Press Enter to Continuous...");
+                    System.out.print(Colors.yellow+"Press Enter to Continuous..."+Colors.reset);
                     sc.nextLine();
                 } else {
                     System.out.println(Colors.red + "Don't have " + searchName + " in our stock"+  Colors.reset);
-                    System.out.print("Press Enter to Continuous...");
+                    System.out.print(Colors.yellow+"Press Enter to Continuous..."+Colors.reset);
                     sc.nextLine();
                 }
             }
 
         } catch (SQLException e) {
-            System.out.println("error connected to database: " + e.getMessage());
+            System.out.println(Colors.red+"error connected to database: " + e.getMessage()+Colors.reset);
         }
     }
 }

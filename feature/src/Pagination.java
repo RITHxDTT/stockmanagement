@@ -120,7 +120,7 @@ public class Pagination {
             pageIndex++;
             showPage(pageIndex);
         } else {
-            System.out.println("Already last page.");
+            System.out.println(Colors.blue+"Already last page."+Colors.reset);
         }
     }
 
@@ -131,7 +131,7 @@ public class Pagination {
             pageIndex--;
             showPage(pageIndex);
         } else {
-            System.out.println("Already first page.");
+            System.out.println(Colors.blue+"Already first page."+Colors.reset);
         }
     }
 }
