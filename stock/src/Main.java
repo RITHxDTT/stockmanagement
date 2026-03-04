@@ -12,7 +12,7 @@ public class Main {
         InputString input = new InputString();
         System.out.println();
         System.out.println("\t\t---------Stock Management---------\t\t");
-        numberDisplay.displayProductName();
+        Pagination.displayProductName();
         System.out.println();
         System.out.println("\t\t\t---------Menu---------\t\t");
         System.out.println();
@@ -27,14 +27,13 @@ public class Main {
         System.out.println();
 
 
-
 //        main program
 
         while(true){
 //        regex validation
             input.inputType();
             if(input.output.equalsIgnoreCase("n")){
-                NextPage.nextPage();
+                Pagination.nextPage();
 
 
             }
@@ -44,12 +43,12 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("f")){
-                FirstPage.firstPage();
+                Pagination.firstPage();
 
 
             }
             else if(input.output.equalsIgnoreCase("l")){
-                LastPage.lastPage();
+                Pagination.lastPage();
 
             }
             else if(input.output.equalsIgnoreCase("w")){
