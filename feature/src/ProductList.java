@@ -13,18 +13,18 @@ public class ProductList {
             String sql = "INSERT INTO products(name, unitprice, qty, importdate) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            System.out.print("Please input Product Name: ");
+            System.out.print(Colors.purple+"Please input Product Name: "+Colors.reset);
             String name = sc.nextLine();
 
-            System.out.print("Please input Unit Price: ");
+            System.out.print(Colors.purple+"Please input Unit Price: "+Colors.reset);
             double unitPrice = sc.nextDouble();
             sc.nextLine();
 
-            System.out.print("Please input Quantity: ");
+            System.out.print(Colors.purple+"Please input Quantity: "+Colors.reset);
             int qty = sc.nextInt();
             sc.nextLine();
 
-            System.out.print("Please input Date (yyyy-mm-dd): ");
+            System.out.print(Colors.purple+"Please input Date (yyyy-mm-dd): "+Colors.reset);
             String date = sc.nextLine();
 
             ps.setString(1, name);
@@ -41,7 +41,7 @@ public class ProductList {
             }
 
             if (row == 1) {
-                System.out.println("Add success! Product ID: " + id);
+                System.out.println(Colors.green+"Add success! Product ID: " + id+Colors.reset);
 
 
                 Pagination.products.add(
@@ -67,22 +67,22 @@ public class ProductList {
             String sql = "UPDATE products SET name=?, unitprice=?, qty=?, importdate=? WHERE id=?";
             PreparedStatement ps = con.prepareStatement(sql);
 
-            System.out.print("Please input product id: ");
+            System.out.print(Colors.cyan+"Please input product id: "+Colors.reset);
             int id = sc.nextInt();
             sc.nextLine();
 
-            System.out.print("New product name: ");
+            System.out.print(Colors.cyan+"New product name: "+Colors.reset);
             String name = sc.nextLine();
 
-            System.out.print("New unit price: ");
+            System.out.print(Colors.cyan+"New unit price: "+Colors.reset);
             double unitPrice = sc.nextDouble();
             sc.nextLine();
 
-            System.out.print("New quantity: ");
+            System.out.print(Colors.cyan+"New quantity: "+Colors.reset);
             int qty = sc.nextInt();
             sc.nextLine();
 
-            System.out.print("New date (yyyy-mm-dd): ");
+            System.out.print(Colors.cyan+"New date (yyyy-mm-dd): "+Colors.reset);
             String date = sc.nextLine();
 
             ps.setString(1, name);
@@ -94,7 +94,7 @@ public class ProductList {
             int row = ps.executeUpdate();
 
             if (row == 1) {
-                System.out.println("Update success");
+                System.out.println(Colors.green+"Update success"+Colors.reset);
 
 
                 for (int i = 0; i < Pagination.products.size(); i++) {
@@ -109,11 +109,11 @@ public class ProductList {
                 }
 
             } else {
-                System.out.println("ID not found");
+                System.out.println(Colors.red+"ID not found"+Colors.reset);
             }
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(Colors.red+"Error: " + e.getMessage()+Colors.reset);
         }
     }
 
@@ -128,7 +128,7 @@ public class ProductList {
             String sql = "DELETE FROM products WHERE id=?";
             PreparedStatement ps = con.prepareStatement(sql);
 
-            System.out.print("Please input product id to delete: ");
+            System.out.print(Colors.yellow+"Please input product id to delete: "+Colors.reset);
             int id = sc.nextInt();
 
             ps.setInt(1, id);
@@ -136,7 +136,7 @@ public class ProductList {
             int row = ps.executeUpdate();
 
             if (row == 1) {
-                System.out.println("Delete success");
+                System.out.println(Colors.green+"Delete success"+Colors.reset);
 
 
                 for (int i = 0; i < Pagination.products.size(); i++) {
@@ -150,11 +150,11 @@ public class ProductList {
                 Pagination.total--;
 
             } else {
-                System.out.println("ID not found");
+                System.out.println(Colors.red+"ID not found"+Colors.reset);
             }
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(Colors.red+"Error: " + e.getMessage()+Colors.reset);
         }
     }
 }

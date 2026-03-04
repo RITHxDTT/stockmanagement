@@ -9,7 +9,7 @@ public class InputString {
     public void inputType(){
         String inputType;
         while(true){
-            System.out.print("==> Chose an option: ");
+            System.out.print(Colors.purple+"==> Chose an option: "+Colors.reset);
             inputType = sc.nextLine();
             System.out.println();
             if(inputType.matches(regex)){
