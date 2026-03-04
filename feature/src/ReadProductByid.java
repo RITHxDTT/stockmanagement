@@ -1,4 +1,4 @@
-import org.fusesource.jansi.Ansi;
+
 import org.nocrala.tools.texttablefmt.BorderStyle;
 import org.nocrala.tools.texttablefmt.CellStyle;
 import org.nocrala.tools.texttablefmt.ShownBorders;
@@ -13,7 +13,7 @@ public class ReadProductByid {
         InputString input = new InputString();
         
         while (true){
-            System.out.print(Ansi.ansi().fgBrightMagenta().a("Enter Product Id to search : ").reset());
+            System.out.print(Colors.cyan +"Enter Product Id to search : "+Colors.reset);
             String id = sc.nextLine();
             Integer Id = 0;
             if(input.idValidate(id)){
@@ -44,32 +44,31 @@ public class ReadProductByid {
 
                         System.out.println(t.render());
 
-                        System.out.println(Ansi.ansi().fgYellow().a("Do you want to continue? (y/n)").reset());
+                        System.out.println(Colors.yellow+"Do you want to continue? (y/n)"+Colors.reset);
                         String confirm = sc.nextLine();
                         if("Y".equalsIgnoreCase(confirm)){
 
                         }else {
-                            System.out.println(Ansi.ansi().fgBlue().a("Press enter to continue...").reset());
+                            System.out.println(Colors.blue+"Press enter to continue..."+Colors.reset);
                             sc.nextLine();
                             break;
                         }
 
                     }
                     else {
-                        System.out.println(Ansi.ansi().fgRed().a("Product ID not found").reset());
+                        System.out.println(Colors.red+"Product ID not found"+Colors.reset);
 
                     }
 
                 }
                 catch(SQLException e){
-                    System.out.println(Ansi.ansi().fgRed().a("error connected to database: " + e.getMessage()).reset());
+                    System.out.println(Colors.red+"error connected to database: " + e.getMessage()+Colors.reset);
                 }
 
             }else {
-                System.out.println(Ansi.ansi().fgRed().a("Please input number only").reset());
+                System.out.println(Colors.red+"Please input number only"+Colors.reset);
 
             }
-            
 
         }
 

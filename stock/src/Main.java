@@ -1,4 +1,4 @@
-import org.fusesource.jansi.Ansi;
+
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -18,17 +18,17 @@ public class Main {
 
             InputString input = new InputString();
             System.out.println();
-            System.out.println(Ansi.ansi().fgBrightCyan().a("\t\t---------Stock Management---------\t\t").reset());
+            System.out.println(Colors.purple + "\t\t---------Stock Management---------\t\t"+ Colors.reset);
             Pagination.displayProductName();
             System.out.println();
-            System.out.println(Ansi.ansi().fgBlue().a("\t\t\t---------Menu---------\t\t").reset());
+            System.out.println(Colors.cyan+"\t\t\t---------Menu---------\t\t"+Colors.reset);
             System.out.println();
 
-            System.out.println("\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t ");
+            System.out.println(Colors.green+ "\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t "+Colors.reset);
             System.out.println();
-            System.out.println("W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows ");
+            System.out.println(Colors.blue+"W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows "+Colors.reset);
             System.out.println();
-            System.out.println("Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore ");
+            System.out.println(Colors.yellow+"Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore "+Colors.reset);
             System.out.println();
             System.out.println("\t\t----------------------------------------");
             System.out.println();

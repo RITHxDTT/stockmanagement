@@ -11,6 +11,5 @@
     <orderEntry type="library" name="postgresql-42.2.29.jre9" level="project" />
     <orderEntry type="library" name="text-table-formatter-1.1.4" level="project" />
     <orderEntry type="library" name="postgresql-42.2.29.jre10" level="project" />
-    <orderEntry type="library" name="jansi-2.4.0" level="project" />
   </component>
 </module>
