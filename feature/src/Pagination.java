@@ -168,7 +168,6 @@ public static void nextPage() throws SQLException {
             if(countRecord == 4){
                 pageIndex ++;
                    page++;
-                System.out.println("count: " + pageIndex);
 
                 break;
             }

@@ -7,29 +7,30 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        NumberDisplay numberDisplay = new NumberDisplay();
-
-        InputString input = new InputString();
-        System.out.println();
-        System.out.println("\t\t---------Stock Management---------\t\t");
-        Pagination.displayProductName();
-        System.out.println();
-        System.out.println("\t\t\t---------Menu---------\t\t");
-        System.out.println();
-
-        System.out.println("\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t ");
-        System.out.println();
-        System.out.println("W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows ");
-        System.out.println();
-        System.out.println("Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore ");
-        System.out.println();
-        System.out.println("\t\t----------------------------------------");
-        System.out.println();
 
 
 //        main program
 
         while(true){
+            NumberDisplay numberDisplay = new NumberDisplay();
+
+            InputString input = new InputString();
+            System.out.println();
+            System.out.println("\t\t---------Stock Management---------\t\t");
+            Pagination.displayProductName();
+            System.out.println();
+            System.out.println("\t\t\t---------Menu---------\t\t");
+            System.out.println();
+
+            System.out.println("\t N. Next Page \t P. Previous Page\t F. First page\t L. Last page\t ");
+            System.out.println();
+            System.out.println("W) Write \t R) Read\t Up) Update\t D) Delete\t S) Search (name)\t Se) Set rows ");
+            System.out.println();
+            System.out.println("Sa) Save \t Un) Unsave\t Ba) Backup\t Re) Restore ");
+            System.out.println();
+            System.out.println("\t\t----------------------------------------");
+            System.out.println();
+
 //        regex validation
             input.inputType();
             if(input.output.equalsIgnoreCase("n")){
