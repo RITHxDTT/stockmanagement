@@ -84,7 +84,7 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("se")){
-                System.out.print("Enter the number of rows to display: ");
+                System.out.print(Colors.blue+"Enter the number of rows to display: "+ Colors.reset);
                 int row = sc.nextInt();
                 Pagination se = new Pagination();
                 se.setRow(row);
