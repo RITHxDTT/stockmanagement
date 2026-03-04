@@ -22,7 +22,7 @@ public class NumberDisplay {
 //            create statement
             Statement stmt = con.createStatement();
 
-//            retrive data
+//            retrieve data
             String select = """
                     select * from products
                     """;
@@ -63,13 +63,18 @@ public class NumberDisplay {
                 t.addCell(rs.getString("name"));
                 t.addCell(rs.getString("unitPrice"));
                 t.addCell(rs.getString("qty"));
-                t.addCell(rs.getString("importdate"));
+                t.addCell(rs.getString("importDate"));
                 countRecord++;
 
             }
-
-
-            totalPage = (total/4)  ;
+            int tempertotla;
+            if( ( tempertotla = total%4) !=0 ){
+                totalPage = tempertotla+1;
+            }
+            else{
+                totalPage = tempertotla ;
+            }
+           ;
 
 
             // 3. Add the Footer 

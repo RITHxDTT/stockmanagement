@@ -13,7 +13,7 @@ public class FirstPage {
         try(Connection con = DbConncetion.getConnection()){
             NumberDisplay.pageIndex = 0;
             NumberDisplay.page =0;
-//            retrive data
+//            retrieve data
             String select = " select * from products ";
 
 //            statement

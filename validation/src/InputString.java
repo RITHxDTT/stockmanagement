@@ -5,7 +5,6 @@ public class InputString {
     public String regex = "[a-zA-Z]+$";
     public String output ;
 
-
     public void inputType(){
         String inputType;
         while(true){
@@ -17,7 +16,7 @@ public class InputString {
                 break;
             }
             else{
-                System.out.println(Colors.red + "Please folow the command instruction" + Colors.reset);
+                System.out.println(Colors.red + "Please follow the command instruction" + Colors.reset);
             }
         }
     }
