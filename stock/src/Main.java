@@ -64,8 +64,9 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("r")){
+                ReadById r = new ReadById();
+                r.displayProductById();
 
-                break;
             }
             else if(input.output.equalsIgnoreCase("up")){
                 System.out.println();

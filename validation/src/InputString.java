@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class InputString {
     Scanner sc = new Scanner(System.in);
@@ -20,4 +21,9 @@ public class InputString {
             }
         }
     }
+
+    public boolean idValidate(String id){
+        return Pattern.matches("^[0-9]+$",id);
+    }
+
 }
