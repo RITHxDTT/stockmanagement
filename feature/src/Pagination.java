@@ -134,4 +134,43 @@ public class Pagination {
             System.out.println(Colors.blue+"Already first page."+Colors.reset);
         }
     }
+
+    public void setRow(int numberOfRows) {
+        try (Connection con = DbConncetion.getConnection();
+             Statement stmt = con.createStatement()) {
+
+            String sql = "SELECT * FROM products";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            Table t = new Table(5, BorderStyle.DESIGN_TUBES_WIDE, ShownBorders.ALL);
+            t.addCell("ID");
+            t.addCell("Name");
+            t.addCell("Unit Price");
+            t.addCell("Qty");
+            t.addCell("Import Date");
+
+            int count = 0;
+            while (rs.next() && count < numberOfRows) {
+                t.addCell(rs.getString("id"));
+                t.addCell(rs.getString("name"));
+                t.addCell(rs.getString("unitPrice"));
+                t.addCell(rs.getString("qty"));
+                t.addCell(rs.getString("importdate"));
+                count++;
+            }
+
+            System.out.println(t.render());
+
+            if (count == 0) {
+                System.out.println(Colors.red + "No products found!" + Colors.reset);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(Colors.red +  e.getMessage() + Colors.reset);
+        }
+    }
+
+
+
+
 }

@@ -84,8 +84,11 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("se")){
+                System.out.print("Enter the number of rows to display: ");
+                int row = sc.nextInt();
+                Pagination se = new Pagination();
+                se.setRow(row);
 
-                break;
             }
             else if(input.output.equalsIgnoreCase("sa")){
 
