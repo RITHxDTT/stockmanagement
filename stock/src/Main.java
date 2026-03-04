@@ -75,16 +75,13 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("d")){
-                int count = 0 ;
-                if(count ==1){
-                    ProductList p = new ProductList();
-
-                }
                 pr.deleteProduct();
+                Pagination.loadProducts();
             }
             else if(input.output.equalsIgnoreCase("s")){
+                SearchByName.search();
+                Pagination.loadProducts();
 
-                break;
             }
             else if(input.output.equalsIgnoreCase("se")){
                 System.out.print("Enter the number of rows to display: ");
