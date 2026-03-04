@@ -84,10 +84,18 @@ public class Main {
 
             }
             else if(input.output.equalsIgnoreCase("se")){
-                System.out.print(Colors.blue+"Enter the number of rows to display: "+ Colors.reset);
-                int row = sc.nextInt();
                 Pagination se = new Pagination();
-                se.setRow(row);
+                while (true) {
+                    System.out.print(Colors.blue + "Enter number of rows to display: " + Colors.reset);
+                    String rowNumber = sc.nextLine();
+                    try {
+                        int row = Integer.parseInt(rowNumber);
+                        se.setRow(row);
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println(Colors.red + "Please Enter Number Only :)." + Colors.reset);
+                    }
+                }
 
             }
             else if(input.output.equalsIgnoreCase("sa")){
