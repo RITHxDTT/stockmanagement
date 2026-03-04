@@ -17,185 +17,146 @@ public class Pagination {
     public static int row = 3;
 //    first page
 public static void firstPage() throws SQLException {
-    try(Connection con = DbConncetion.getConnection()){
-        pageIndex = 0;
-        page =0;
-//            retrive data
-        String select = " select * from products ";
 
-//            statement
+    pageIndex = 1;
+
+    try (Connection con = DbConncetion.getConnection()) {
+
+        int temperIndex = 0;
+
+        String select = "SELECT * FROM products ORDER BY id LIMIT "
+                + row + " OFFSET " + temperIndex;
+
         Statement stmt = con.createStatement();
-
-//            Result stage
         ResultSet rs = stmt.executeQuery(select);
+
         Table t = new Table(5, BorderStyle.DESIGN_TUBES_WIDE, ShownBorders.ALL);
 
-//          2. Add Headers first
+        // Header
         t.addCell("ID");
         t.addCell("Name");
         t.addCell("Unit Price");
         t.addCell("Qty");
         t.addCell("Import Date");
 
-        countRecord = 0;
-
-
-        while(rs.next()){
-
-
-            if(countRecord == 4){
-                pageIndex ++;
-                page++;
-
-                break;
-            }
-
-
-            // Add data rows
+        while (rs.next()) {
             t.addCell(rs.getString("id"));
             t.addCell(rs.getString("name"));
             t.addCell(rs.getString("unitPrice"));
             t.addCell(rs.getString("qty"));
             t.addCell(rs.getString("importdate"));
-
-            countRecord++;
-
         }
 
-        // 3. Add the Footer
-        t.addCell("Page : " + pageIndex +" of " + totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
-        t.addCell("Total Record :" + total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
+        // Footer
+        t.addCell("Page : " + pageIndex + " of " + totalPage,
+                new CellStyle(CellStyle.HorizontalAlign.left), 2);
 
-        // 4. Render
+        t.addCell("Total Record : " + total,
+                new CellStyle(CellStyle.HorizontalAlign.center), 3);
+
         System.out.println(t.render());
-    }
-    catch(SQLException e){
-        System.out.println(Colors.red+"error occured" + e.getMessage() + Colors.reset);
+
+    } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
     }
 }
 
 // last page
 public static void lastPage() throws SQLException {
-    try(Connection con = DbConncetion.getConnection()){
 
-        pageIndex = totalPage;
-        page = total -  (row+1) ;
-        System.out.println("number of row " + page);
-//            retrive data
-        String select = " select * from products where id > " + page;
+    pageIndex = totalPage;
 
-//            statement
+    try (Connection con = DbConncetion.getConnection()) {
+
+        int tempPage = (pageIndex - 1) * row;
+
+        String select = "SELECT * FROM products ORDER BY id LIMIT "
+                + row + " OFFSET " + tempPage;
+
         Statement stmt = con.createStatement();
-
-//            Result stage
         ResultSet rs = stmt.executeQuery(select);
+
         Table t = new Table(5, BorderStyle.DESIGN_TUBES_WIDE, ShownBorders.ALL);
 
-//          2. Add Headers first
+        // Header
         t.addCell("ID");
         t.addCell("Name");
         t.addCell("Unit Price");
         t.addCell("Qty");
         t.addCell("Import Date");
 
-        countRecord = 0;
-
-
-        while(rs.next()){
-
-
-            if(countRecord == 4){
-                pageIndex ++;
-                page++;
-
-                break;
-            }
-
-
-            // Add data rows
+        while (rs.next()) {
             t.addCell(rs.getString("id"));
             t.addCell(rs.getString("name"));
             t.addCell(rs.getString("unitPrice"));
             t.addCell(rs.getString("qty"));
             t.addCell(rs.getString("importdate"));
-
-            countRecord++;
-
         }
 
-        // 3. Add the Footer
-        t.addCell("Page : " +pageIndex  +" of " + totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
-        t.addCell("Total Record :" + total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
+        // Footer
+        t.addCell("Page : " + pageIndex + " of " + totalPage,
+                new CellStyle(CellStyle.HorizontalAlign.left), 2);
 
-        // 4. Render
+        t.addCell("Total Record : " + total,
+                new CellStyle(CellStyle.HorizontalAlign.center), 3);
+
         System.out.println(t.render());
-    }
-    catch(SQLException e){
-        System.out.println(Colors.red+"error occured" + e.getMessage() + Colors.reset);
+
+    } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
     }
 }
 
 //next page
 public static void nextPage() throws SQLException {
-    try(Connection con = DbConncetion.getConnection()){
-        page +=  row ;
 
-//            retrive data
-        String select = """
-                    select * from products where id >
-                    """ +page + ";";
+    // prevent overflow
+    if (pageIndex >= totalPage) {
+        System.out.println("You are already at last page.");
+        return;
+    }
 
-//            statement
+    pageIndex++;   // move to next page
+
+    try (Connection con = DbConncetion.getConnection()) {
+
+        int offset = (pageIndex - 1) * row;
+
+        String select = "SELECT * FROM products ORDER BY id LIMIT "
+                + row + " OFFSET " + offset;
+
         Statement stmt = con.createStatement();
-
-//            Result stage
         ResultSet rs = stmt.executeQuery(select);
+
         Table t = new Table(5, BorderStyle.DESIGN_TUBES_WIDE, ShownBorders.ALL);
 
-//          2. Add Headers first
+        // Header
         t.addCell("ID");
         t.addCell("Name");
         t.addCell("Unit Price");
         t.addCell("Qty");
         t.addCell("Import Date");
 
-        countRecord = 0;
-
-        System.out.println("count Record is " +  countRecord);
-        while(rs.next()){
-
-
-            if(countRecord == 4){
-                pageIndex ++;
-                   page++;
-                System.out.println("count: " + pageIndex);
-
-                break;
-            }
-
-
-            // Add data rows
+        while (rs.next()) {
             t.addCell(rs.getString("id"));
             t.addCell(rs.getString("name"));
             t.addCell(rs.getString("unitPrice"));
             t.addCell(rs.getString("qty"));
             t.addCell(rs.getString("importdate"));
-
-            countRecord++;
-
         }
 
-        System.out.println("total count : " + pageIndex);
+        // Footer
+        t.addCell("Page : " + pageIndex + " of " + totalPage,
+                new CellStyle(CellStyle.HorizontalAlign.left), 2);
 
-        // 3. Add the Footer
-        t.addCell("Page : " + pageIndex +" of " + totalPage, new CellStyle(CellStyle.HorizontalAlign.left), 2);
-        t.addCell("Total Record :" + total , new CellStyle(CellStyle.HorizontalAlign.center), 3);
+        t.addCell("Total Record : " + total,
+                new CellStyle(CellStyle.HorizontalAlign.center), 3);
 
-        // 4. Render
         System.out.println(t.render());
-    }
-    catch(SQLException e){
-        System.out.println(Colors.red+"error occured" + e.getMessage() + Colors.reset);
+
+    } catch (SQLException e) {
+        System.out.println(Colors.red + "error occured "
+                + e.getMessage() + Colors.reset);
     }
 }
 
